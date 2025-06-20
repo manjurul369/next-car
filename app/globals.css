@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3563E9;
+  --color-secondary: #54A6FF;
+  --color-text: #596780;
+  --color-border: #C3D4E9;
+  --color-slate-gray: #90A3BF;
+}
+
+body{
+  background: #F6F7F9;
+}
+
+@layer components {
+  .circle {
+    @apply flex justify-center items-center w-8 h-8 rounded-full border-border border-1 cursor-pointer;
+  }
+  .title{
+    @apply font-semibold text-[#90A3BF];
+  }
+}
