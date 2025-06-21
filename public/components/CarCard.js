@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export default function CarCard({ carName, type, carImg, oil, cap, price }) {
   return (
-    <div className='bg-white shadow-lg rounded-lg p-5 flex flex-col max-w-[320px]'>
+    <div className='bg-white shadow-lg rounded-lg p-5 flex flex-col max-w-[320px] min-w-[300px]'>
         <div className='flex justify-between items-center mb-2'>
           <h2 className='font-bold text-xl'>{carName}</h2>
           <FaHeart className='text-red-500' />

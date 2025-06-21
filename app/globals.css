@@ -20,3 +20,12 @@ body{
     @apply font-semibold text-[#90A3BF];
   }
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

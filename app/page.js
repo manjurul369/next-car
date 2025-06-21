@@ -29,12 +29,13 @@ export default function Home() {
         <PickUpForm label="Drop - Off"/>
       </section>
 
-      <section id="popular-car" className="p-5 pt-10 md:p-10 lg:p-15">
-        <div className="flex justify-between items-center">
+      <section id="popular-car" className="py-5 pl-5 pt-10 md:p-10 lg:p-15">
+        <div className="flex justify-between items-center pr-5 md:pr-0">
           <h2 className="title">Popular Car</h2>
           <button className="text-primary font-semibold cursor-pointer">View all</button>
         </div>
-        <div className="flex flex-wrap gap-5 mt-5 lg:mt-10 justify-center">
+        <div className="relative">
+          <div className="flex flex-nowrap gap-5 mt-5 lg:mt-10 justify-start overflow-x-auto scrollbar-hide md:flex-wrap md:overflow-x-visible">
           {popularCar.map((car) => (
             <CarCard
               key={car.id}
@@ -46,6 +47,8 @@ export default function Home() {
               price={car.price}
             />
           ))}
+          <div className="absolute right-0 top-0 h-full w-[150px] bg-gradient-to-l from-white to-transparent z-10 block md:hidden"></div>
+          </div>
         </div>
       </section>
     </div>
