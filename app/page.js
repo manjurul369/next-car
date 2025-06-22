@@ -1,8 +1,11 @@
-import { adsInfo, popularCar } from "@/public/constants";
+import { adsInfo, popularCar, recommendedCar } from "@/public/constants";
 import AdsCard from "@/public/components/AdsCard";
 import PickUpForm from "@/public/components/PickUp";
 import CarCard from "@/public/components/CarCard";
+import RecommendCar from "@/public/components/RecommendCar";
 import { CgArrowsExchange } from "react-icons/cg";
+import Button from "@/public/components/Button";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -35,9 +38,9 @@ export default function Home() {
           <button className="text-primary font-semibold cursor-pointer">View all</button>
         </div>
         <div className="relative">
-          <div className="flex flex-nowrap gap-5 mt-5 lg:mt-10 justify-start overflow-x-auto scrollbar-hide md:flex-wrap md:overflow-x-visible">
+          <div className="flex flex-nowrap gap-5 lg:gap-10 mt-5 lg:mt-10 justify-start overflow-x-auto scrollbar-hide md:flex-wrap md:overflow-x-visible">
           {popularCar.map((car) => (
-            <CarCard
+            <Link href={`/carpage/${car.id}` } key={car.id}><CarCard
               key={car.id}
               carName={car.carName}
               type={car.type}
@@ -46,9 +49,33 @@ export default function Home() {
               cap={car.cap}
               price={car.price}
             />
+            </Link>
           ))}
           <div className="absolute right-0 top-0 h-full w-[150px] bg-gradient-to-l from-white to-transparent z-10 block md:hidden"></div>
           </div>
+        </div>
+      </section>
+
+      <section id="recommend-car" className="p-5 pt-10 md:p-10 lg:p-15">
+        <h2 className="title">Recommend Car</h2>
+        <div className="relative">
+          <div className="flex gap-5 mt-5 lg:mt-10 lg:gap-10 justify-start flex-wrap">
+            {recommendedCar.map((car) => (
+              <Link href={`/carpage/${car.id}` } key={car.id}><RecommendCar
+                key={car.id}
+                carName={car.carName}
+                type={car.type}
+                carImg={car.carImg}
+                oil={car.oil}
+                cap={car.cap}
+                price={car.price}
+              />
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="flex justify-center mt-10">
+          <Button label="Show more car" buttonColor="#3563E9"/>
         </div>
       </section>
     </div>
