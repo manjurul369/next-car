@@ -16,6 +16,7 @@ import car10 from './Car (10).png'
 import car11 from './Car (11).png'
 import profile from './profile.jpg'
 import pattern from './pattern.png'
+import pattern2 from './pattern-2.png'
 
 export {
     adscar1,
@@ -35,5 +36,6 @@ export {
     car10,
     car11,
     profile,
-    pattern
+    pattern,
+    pattern2
 }
