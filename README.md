@@ -70,9 +70,9 @@ next-car/
 │   ├── CarDetailsCard.js
 │   ├── ReviewSection.js
 │   └── ...
-├── [index.js](http://_vscodecontentref_/0)
-├── [package.json](http://_vscodecontentref_/1)
-└── [README.md](http://_vscodecontentref_/2)
+├── index.js
+├── package.json
+└── README.md
 ```
 
 ---
