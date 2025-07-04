@@ -22,14 +22,14 @@ export default function Nav() {
                 </div>
             </div>
             <div className='flex gap-4'>
-                <div className='circle'>
+                <div className='circle text-text'>
                     <FaHeart size={15}/>
                 </div>
-                <div className='circle relative'>
+                <div className='circle relative text-text'>
                     <IoIosNotifications size={20} />
                     <div className='w-2 h-2 bg-[#FF4423] absolute top-0 right-0 rounded-full'></div>
                 </div>
-                <div className='circle'>
+                <div className='circle text-text'>
                     <IoMdSettings size={15} />
                 </div>
                 <div className='circle'>
@@ -49,8 +49,8 @@ export default function Nav() {
             </div>
             <div className='w-full px-4 py-3 rounded-xl border border-border flex relative'>
                     <input type="text" placeholder='Serach something here' className='px-10 w-full border-none text-sm active:outline-none focus:outline-none'/>
-                    <IoSearch className='absolute left-4 text-text' size={20} />
-                    <LuSettings2 className='absolute right-4 text-text cursor-pointer' size={20} />
+                    <IoSearch className='absolute left-4 text-slate-gray' size={20} />
+                    <LuSettings2 className='absolute right-4 text-slate-gray cursor-pointer' size={20} />
             </div>
         </div>
     </div>

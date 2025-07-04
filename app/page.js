@@ -51,7 +51,7 @@ export default function Home() {
             />
             </Link>
           ))}
-          <div className="absolute right-0 top-0 h-full w-[150px] bg-gradient-to-l from-white to-transparent z-10 block md:hidden"></div>
+          <div className="absolute right-0 top-0 h-full w-[150px] bg-gradient-to-l from-white to-transparent z-10 block md:hidden pointer-events-none"></div>
           </div>
         </div>
       </section>
