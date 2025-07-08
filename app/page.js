@@ -18,6 +18,8 @@ export default function Home() {
               title={ad.title}
               info={ad.info}
               image={ad.image}
+              bg={ad.bg}
+              bgcolor={ad.bgcolor}
               buttonColor={ad.buttonColor}
             />
           ))}

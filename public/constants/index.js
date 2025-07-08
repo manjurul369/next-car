@@ -1,18 +1,22 @@
-import { adscar11, adscar22, car0, car1, car2, car3, car4, car5, car6, car7, car8, car9, car10, car11, profile } from "../assets/images"
+import { adscar1, adscar2, car0, car1, car2, car3, car4, car5, car6, car7, car8, car9, car10, car11, profile, pattern, pattern2 } from "../assets/images"
 
 export const adsInfo = [
     {
         id: 101,
         title: "The Best Platform for Car Rental",
         info: "Ease of doing a car rental safely and reliably. Of course at a low price.",
-        image: adscar11,
+        image: adscar1,
+        bg: pattern,
+        bgcolor: "#54A6FF",
         buttonColor: "#3563E9",
     },
     {
         id:102,
         title: "Easy way to rent a car at a low price",
         info: "Providing cheap car rental services and safe and comfortable facilities.",
-        image: adscar22,
+        image: adscar2,
+        bg: pattern2,
+        bgcolor: "#3563E9",
         buttonColor: "#54A6FF",
     }
 ]

@@ -34,6 +34,9 @@ export default function Footer({}) {
                 <h2>Terms & Conditions</h2>
             </div>
         </div>
+        <div className='mt-3 w-full flex justify-center md:justify-start text-[#1A202C] font-bold text-sm text-center md:text-start'>
+            <h2 className='w-8/10'>Design inspired by <a href="http://www.figma.com/design/O8Ho6HBGpfhMTt7tRjNyON/Car-Rent-Website-Design---Pickolab-Studio--Community-?node-id=1-5&p=f&t=PpWBvzuFTuDiiJ7J-0" className='underline text-blue-500' target="_blank" rel="noopener noreferrer">Pickolab Studio</a> - all credit goes to them. This site is for educational and practice purposes only.</h2>
+        </div>
     </div>
   )
 }

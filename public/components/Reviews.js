@@ -22,13 +22,13 @@ export default function Reviews({
             <div className='flex items-center gap-4'>
                 <Image src={reviewDetails.userImg} alt="user" width={50} height={50} className='rounded-full border-2 border-primary' />
                 <div>
-                    <h2 className='text-2xl font-semibold'>{reviewDetails.userName}</h2>
-                    <h2 className='text-md text-slate-gray font-semibold'>{reviewDetails.designation}</h2>
+                    <h2 className='lg:text-2xl md:text-xl text-lg font-semibold'>{reviewDetails.userName}</h2>
+                    <h2 className='lg:text-xl md:text-lg text-sm text-slate-gray font-semibold'>{reviewDetails.designation}</h2>
                 </div>
             </div>
             <div className='flex flex-col gap-2 items-end'>
-                <p className='text-md text-slate-gray'>{reviewDetails.date}</p>
-                <span className='text-yellow-500 flex gap-2'>
+                <p className='text-xs md:text-sm lg:text-md text-slate-gray'>{reviewDetails.date}</p>
+                <span className='text-yellow-500 flex gap-1 md:gap-2'>
                     {filledStars}
                     {emptyStars}
                 </span>

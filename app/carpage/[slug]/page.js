@@ -18,7 +18,7 @@ export default async function Page({ params }) {
   }
 
   return (
-    <div className="mt-20 px-10 py-20 md:p-20 lg:px-30 lg:py-15">
+    <div className="mt-20 px-5 py-20 md:p-20 lg:px-30 lg:py-15">
       <section className="flex flex-col lg:flex-row gap-10">
         <CarGallery carImg={car.carImg} thumbImg={car.thumbImg} />
         <CarDetailsCard carName={car.carName} 
@@ -54,7 +54,7 @@ export default async function Page({ params }) {
             />
             </Link>
           ))}
-          <div className="absolute right-0 top-0 h-full w-[150px] bg-gradient-to-l from-white to-transparent z-10 block md:hidden"></div>
+          <div className="absolute right-0 top-0 h-full w-[150px] bg-gradient-to-l from-white to-transparent z-10 block md:hidden pointer-events-none"></div>
           </div>
         </div>
       </section>

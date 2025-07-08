@@ -15,18 +15,18 @@ export default function CarCard({ carName, type, carImg, oil, cap, price }) {
         <h2 className='text-sm lg:text-lg font-bold text-slate-gray mb-20'>{type}</h2>
         <div className='flex flex-row sm:flex-col'>
             <div className='w-full flex justify-center mb-4 lg:mb-8'>
-                <Image src={carImg} alt={carName} className="w-full h-auto" />
+                <Image src={carImg} alt={carName} className="w-[90%] h-auto" />
             </div>
             <div className='flex flex-col sm:flex-row justify-start sm:justify-between items-start mb-4 gap-2 sm:gap-0 w-[120px] sm:w-auto'>
-                <div className='flex items-center gap-2 text-slate-gray font-medium'>
+                <div className='flex items-center gap-2 text-sm text-slate-gray font-medium'>
                     <FaGasPump />
                     <p>{oil}</p>
                 </div>
-                <div className='flex items-center gap-2 text-slate-gray font-medium'>
+                <div className='flex items-center gap-2 text-sm text-slate-gray font-medium'>
                     <PiSteeringWheelFill />
                     <p>Manual</p>
                 </div>
-                <div className='flex items-center gap-2 text-slate-gray font-medium'>
+                <div className='flex items-center gap-2 text-sm text-slate-gray font-medium'>
                     <MdPeopleAlt />
                     <p>{cap}</p>
                 </div>

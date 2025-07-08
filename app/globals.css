@@ -6,10 +6,12 @@
   --color-text: #596780;
   --color-border: #C3D4E9;
   --color-slate-gray: #90A3BF;
+  --color-body: #F6F7F9;
 }
 
 body{
   background: #F6F7F9;
+  color: #262626;
 }
 
 @layer components {
@@ -19,6 +21,25 @@ body{
   .title{
     @apply font-semibold text-[#90A3BF];
   }
+  .input-field{
+    @apply outline-none p-4 bg-body rounded-lg text-sm;
+  }
+  .input-field-white{
+    @apply outline-none p-4 bg-white rounded-lg text-sm;
+  }
+}
+
+.custom-select option[value=""] {
+  color: #94a3b8;
+}
+
+.custom-select {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.custom-select::-webkit-scrollbar {
+  display: none;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -29,3 +50,13 @@ body{
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+select {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+select::-webkit-scrollbar {
+  display: none;
+}
+

@@ -17,6 +17,10 @@ import car11 from './Car (11).png'
 import profile from './profile.jpg'
 import pattern from './pattern.png'
 import pattern2 from './pattern-2.png'
+import visa from './Visa.png'
+import paypal from './PayPal.png'
+import bitcoin from './Bitcoin.png'
+import safety from './ic-security-safety.png'
 
 export {
     adscar1,
@@ -37,5 +41,9 @@ export {
     car11,
     profile,
     pattern,
-    pattern2
+    pattern2,
+    visa,
+    paypal,
+    bitcoin,
+    safety
 }

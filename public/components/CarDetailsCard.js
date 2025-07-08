@@ -29,32 +29,43 @@ export default function CarDetailsCard({
         </div>
       </div>
       <p className='text-md my-4 lg:my-8 font-regular leading-7 text-slate-gray'>{carDetails}</p>
-      <div className='flex justify-between items-center gap-10'>
-        <div className='w-1/2 flex justify-between font-semibold'>
+      <div className='flex items-center'>
+        <div className='w-1/2 text-xs sm:text-md md:text-lg flex gap-1 md:gap-3 font-semibold'>
           <span className='text-slate-gray'>Type Car</span>
           <span>{type}</span>
         </div>
-        <div className='w-1/2 flex justify-between font-semibold'>
+        <div className='w-1/2 text-xs sm:text-md md:text-lg flex gap-1 md:gap-3 font-semibold'>
           <span className='text-slate-gray'>Capacity</span>
           <span>{cap}</span>
         </div>
       </div>
-      <div className='flex justify-between items-center gap-10'>
-        <div className='w-1/2 flex justify-between font-semibold'>
+      <div className='flex items-center'>
+        <div className='w-1/2 text-xs sm:text-md md:text-lg flex gap-1 md:gap-3 font-semibold'>
           <span className='text-slate-gray'>Steering</span>
           <span>{steering}</span>
         </div>
-        <div className='w-1/2 flex justify-between font-semibold'>
+        <div className='w-1/2 text-xs sm:text-md md:text-lg flex gap-1 md:gap-3 font-semibold'>
           <span className='text-slate-gray'>Gasoline</span>
           <span>{oil}</span>
         </div>
       </div>
       <div className='flex justify-between items-center mt-4 lg:mt-10'>
         <div className='flex flex-col gap-1'>
-          <span className='text-3xl font-bold'>${price.toFixed(2)}/<span className='text-sm text-slate-gray'>days</span></span>
-          <span className='text-lg font-bold text-slate-gray line-through'>${oldPrice.toFixed(2)}</span>
+          <span className='text-xl md:text-2xl lg:text-3xl font-bold'>${price.toFixed(2)}/<span className='text-sm text-slate-gray'>days</span></span>
+          <span className='text-md md:text-lg font-bold text-slate-gray line-through'>${oldPrice.toFixed(2)}</span>
         </div>
-        <Button label="Rent Now" size='xl' />
+        <div className='sm:hidden'>
+          <Button label="Rent Now" size='sm' />
+        </div>
+        <div className='hidden sm:block md:hidden'>
+          <Button label="Rent Now" size='md' />
+        </div>
+        <div className='hidden md:block lg:hidden'>
+          <Button label="Rent Now" size='lg' />
+        </div>
+        <div className='hidden lg:block'>
+          <Button label="Rent Now" size='xl' />
+        </div>
       </div>
     </div>
   )

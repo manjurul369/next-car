@@ -36,9 +36,9 @@ export default function ReviewSection({ car }) {
   return (
     <section>
       <div className="w-full bg-white rounded-lg shadow-md p-6 lg:p-10 xl:p-15 mt-10">
-        <div className="flex items-center gap-4">
-          <h2 className="text-3xl font-bold">Reviews</h2>
-          <Button label={car.reviews.length} />
+        <div className="flex items-center gap-2 md:gap-4">
+          <h2 className="lg:text-3xl text-2xl font-bold">Reviews</h2>
+          <Button label={car.reviews.length} size='sm' />
         </div>
 
         <div
