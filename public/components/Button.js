@@ -9,8 +9,15 @@ const sizeClasses = {
   xl: 'py-5 px-10 text-xl'
 };
 
-export default function Button({ label, buttonColor="#3563E9", mb = "0", size='sm' }) {
+export default function Button({ label, buttonColor = "#3563E9", mb = "0", size = 'sm', onClick }) {
+  const handleClick = (e) => {
+    if (onClick) {
+      e.preventDefault();
+      e.stopPropagation();
+      onClick(e);
+    }
+  }
   return (
-    <button className={`cursor-pointer z-2 rounded-sm text-white text-${size} mt-2 ${sizeClasses[size] || sizeClasses.sm}`} style={{background: `${buttonColor}`, marginBottom: `${mb}px`}}>{label}</button>
+    <button className={`cursor-pointer z-2 rounded-sm text-white text-${size} mt-2 ${sizeClasses[size] || sizeClasses.sm}`} style={{ background: `${buttonColor}`, marginBottom: `${mb}px` }} onClick={handleClick}>{label}</button>
   )
 }

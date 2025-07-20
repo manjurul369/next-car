@@ -5,13 +5,23 @@ import { PiSteeringWheelFill } from "react-icons/pi";
 import { MdPeopleAlt } from "react-icons/md";
 import Button from './Button';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function CarCard({ carID, carName, type, carImg, oil, cap, price }) {
   const [isFavorite, setIsFavorite] = useState(false);
+  const router = useRouter();
 
   function toggleFavorite(e) {
+    e.preventDefault();
+    e.stopPropagation();
     setIsFavorite(!isFavorite);
   }
+
+  const handleRentNow = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    router.push(`/payment/${carID}`);
+  };
 
 
   return (
@@ -44,7 +54,7 @@ export default function CarCard({ carID, carName, type, carImg, oil, cap, price 
       </div>
       <div className='flex justify-between items-center'>
         <p className='font-bold text-xl'>${price.toFixed(2)}/ <span className='text-slate-gray text-sm'>day</span></p>
-        <Button label={"Rent Now"} buttonColor="#3563E9" />
+        <Button label={"Rent Now"} buttonColor="#3563E9" onClick={handleRentNow} />
       </div>
     </div>
   )

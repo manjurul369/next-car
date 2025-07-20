@@ -44,6 +44,7 @@ export default function Home() {
           {popularCar.map((car) => (
             <Link href={`/carpage/${car.id}` } key={car.id}><CarCard
               key={car.id}
+              carID={car.id}
               carName={car.carName}
               type={car.type}
               carImg={car.carImg}
@@ -65,6 +66,7 @@ export default function Home() {
             {recommendedCar.map((car) => (
               <Link href={`/carpage/${car.id}` } key={car.id}><RecommendCar
                 key={car.id}
+                carID={car.id}
                 carName={car.carName}
                 type={car.type}
                 carImg={car.carImg}

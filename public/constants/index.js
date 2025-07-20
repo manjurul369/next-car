@@ -659,3 +659,31 @@ export const footerLinks = [
         ]
     }
 ]
+
+
+export const promocodes = [
+    {
+        id: 1,
+        code: "CAR2023",
+        discount_percent: 10,
+        expiryDate: "2027-12-31"
+    },
+    {
+        id: 2,
+        code: "SAVE20",
+        discount_percent: 20,
+        expiryDate: "2027-12-31"
+    },
+    {
+        id: 3,
+        code: "FREESHIP",
+        discount_percent: 0,
+        expiryDate: "2027-12-31"
+    },
+    {
+        id: 4,
+        code: "WELCOME15",
+        discount_percent: 15,
+        expiryDate: "2027-12-31"
+    }
+]

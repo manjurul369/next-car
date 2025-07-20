@@ -21,6 +21,7 @@ import visa from './Visa.png'
 import paypal from './PayPal.png'
 import bitcoin from './Bitcoin.png'
 import safety from './ic-security-safety.png'
+import google from './Google.png'
 
 export {
     adscar1,
@@ -45,5 +46,6 @@ export {
     visa,
     paypal,
     bitcoin,
-    safety
+    safety,
+    google
 }

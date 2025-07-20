@@ -21,7 +21,9 @@ export default async function Page({ params }) {
     <div className="mt-20 px-5 py-20 md:p-20 lg:px-30 lg:py-15">
       <section className="flex flex-col lg:flex-row gap-10">
         <CarGallery carImg={car.carImg} thumbImg={car.thumbImg} />
-        <CarDetailsCard carName={car.carName} 
+        <CarDetailsCard
+          carID={car.id} 
+          carName={car.carName} 
           rattingCount={car.rattingCount}
           star={car.star}
           carDetails={car.carDetails}
@@ -45,6 +47,7 @@ export default async function Page({ params }) {
           {popularCar.map((car) => (
             <Link href={`/carpage/${car.id}` } key={car.id}><CarCard
               key={car.id}
+              carID={car.id}
               carName={car.carName}
               type={car.type}
               carImg={car.carImg}

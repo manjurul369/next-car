@@ -9,6 +9,10 @@
   --color-body: #F6F7F9;
 }
 
+*{
+  scroll-behavior: smooth;
+}
+
 body{
   background: #F6F7F9;
   color: #262626;

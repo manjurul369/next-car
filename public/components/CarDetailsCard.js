@@ -1,10 +1,20 @@
+"use client";
 import Button from './Button';
 import { FaStar } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
+import { useRouter} from 'next/navigation';
 
 export default function CarDetailsCard({
-    carName, star, rattingCount, carDetails, type, cap, steering, oil, price, oldPrice
+    carID, carName, star, rattingCount, carDetails, type, cap, steering, oil, price, oldPrice
 }) {
+
+  const router = useRouter();
+
+  const handleRentNow = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    router.push(`/payment/${carID}`);
+  }
   
   const filledStars = [];
   const emptyStars = [];
@@ -55,16 +65,16 @@ export default function CarDetailsCard({
           <span className='text-md md:text-lg font-bold text-slate-gray line-through'>${oldPrice.toFixed(2)}</span>
         </div>
         <div className='sm:hidden'>
-          <Button label="Rent Now" size='sm' />
+          <Button label="Rent Now" size='sm' onClick={handleRentNow} />
         </div>
         <div className='hidden sm:block md:hidden'>
-          <Button label="Rent Now" size='md' />
+          <Button label="Rent Now" size='md' onClick={handleRentNow} />
         </div>
         <div className='hidden md:block lg:hidden'>
-          <Button label="Rent Now" size='lg' />
+          <Button label="Rent Now" size='lg' onClick={handleRentNow} />
         </div>
         <div className='hidden lg:block'>
-          <Button label="Rent Now" size='xl' />
+          <Button label="Rent Now" size='xl' onClick={handleRentNow} />
         </div>
       </div>
     </div>
