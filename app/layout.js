@@ -2,6 +2,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Nav from "@/public/components/Nav";
 import Footer from "@/public/components/Footer";
+import { WishlistProvider } from "@/public/contexts/WishlistContext";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -20,9 +21,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${jakarta.className} ${jakarta.variable}`}
       >
-        <Nav />
-        {children}
-        <Footer />
+        <WishlistProvider>
+          <Nav />
+          {children}
+          <Footer />
+        </WishlistProvider>
       </body>
     </html>
   );

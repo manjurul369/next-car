@@ -3,18 +3,21 @@ import {React, useState} from 'react';
 import { FaHeart, FaGasPump, FaRegHeart } from "react-icons/fa";
 import { PiSteeringWheelFill } from "react-icons/pi";
 import { MdPeopleAlt } from "react-icons/md";
+import { useWishlist } from '@/public/contexts/WishlistContext';
 import Button from './Button';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 export default function CarCard({ carID, carName, type, carImg, oil, cap, price }) {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const { toggleWishlist, isInWishlist } = useWishlist();
   const router = useRouter();
+
+  const isFavorite = isInWishlist(carID);
 
   function toggleFavorite(e) {
     e.preventDefault();
     e.stopPropagation();
-    setIsFavorite(!isFavorite);
+    toggleWishlist(carID);
   }
 
   const handleRentNow = (e) => {
@@ -28,9 +31,17 @@ export default function CarCard({ carID, carName, type, carImg, oil, cap, price 
       <div className='flex justify-between items-center mb-2'>
         <h2 className='font-bold text-xl lg:text-2xl'>{carName}</h2>
         {isFavorite ? (
-          <FaHeart className='text-red-500 cursor-pointer' size={25} onClick={e => { toggleFavorite(e) }} />
+          <FaHeart 
+            className='text-red-500 cursor-pointer' 
+            size={25} 
+            onClick={toggleFavorite} 
+          />
         ) : (
-          <FaRegHeart className='text-gray-400 cursor-pointer' size={25} onClick={e => { toggleFavorite(e) }} />
+          <FaRegHeart 
+            className='text-gray-400 cursor-pointer' 
+            size={25} 
+            onClick={toggleFavorite} 
+          />
         )}
       </div>
       <h2 className='text-sm lg:text-lg font-bold text-slate-gray mb-20'>{type}</h2>

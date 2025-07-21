@@ -33,6 +33,7 @@ export const popularCar = [
         price: 99.00,
         oldPrice: 100.00,
         tax: 0,
+        isLoved: false,
         thumbImg: [car0, car1, car2],
         carDetails: "The Koenigsegg Jesko is a high-performance hypercar known for its extreme speed and advanced engineering. It features a twin-turbo V8 engine, producing over 1,600 horsepower, and is designed for both track and road use. The car's aerodynamic design and lightweight construction contribute to its impressive performance capabilities, making it one of the fastest production cars in the world.",
         rattingCount: 440,
@@ -83,6 +84,7 @@ export const popularCar = [
         price: 80.00,
         oldPrice: 100.00,
         tax: 0,
+        isLoved: false,
         thumbImg: [car1, car0, car2],
         carDetails: "The Nissan GT-R is a legendary sports car known for its powerful performance and advanced technology. It features a twin-turbo V6 engine, all-wheel drive, and a sophisticated suspension system that provides exceptional handling and stability. The GT-R is celebrated for its impressive acceleration, precise steering, and track-ready capabilities, making it a favorite among car enthusiasts.",
         rattingCount: 440,
@@ -133,6 +135,7 @@ export const popularCar = [
         price: 96.00,
         oldPrice: 100.00,
         tax: 0,
+        isLoved: false,
         thumbImg: [car2, car1, car0],
         carDetails: "Rolls Royce is a symbol of luxury and elegance in the automotive world. Known for its opulent design, handcrafted interiors, and powerful engines, Rolls Royce vehicles offer a unique blend of performance and comfort. Each car is meticulously crafted to provide an unparalleled driving experience, making it a preferred choice for those who seek the finest in automotive excellence.",
         rattingCount: 440,
@@ -183,6 +186,7 @@ export const popularCar = [
         price: 70.00,
         oldPrice: 100.00,
         tax: 0,
+        isLoved: false,
         thumbImg: [car3, car2, car1],
         carDetails: "The Toyota Alphard is a luxury minivan that combines spaciousness with high-end features. It offers a comfortable and refined interior, making it ideal for families or those who prioritize comfort. The Alphard is equipped with advanced safety technologies, a powerful engine, and a smooth ride, making it a popular choice for those seeking both practicality and luxury in their vehicle.",
         rattingCount: 440,
@@ -236,6 +240,7 @@ export const recommendedCar = [
         price: 72.00,
         oldPrice: 100.00,
         tax: 0,
+        isLoved: false,
         thumbImg: [car4, car3, car2],
         carDetails: "The All New Rush is a compact SUV that offers a perfect blend of style, comfort, and practicality. With its spacious interior, advanced safety features, and efficient engine, it is designed for urban driving and family adventures. The Rush provides a smooth ride, modern technology, and a versatile cargo space, making it an excellent choice for those seeking an affordable yet stylish SUV.",
         rattingCount: 440,
@@ -286,6 +291,7 @@ export const recommendedCar = [
         price: 80.00,
         oldPrice: 100.00,
         tax: 0,
+        isLoved: false,
         thumbImg: [car5, car4, car3],
         carDetails: "The CR-V is a compact SUV known for its reliability, spaciousness, and advanced features. It offers a comfortable ride with ample cargo space, making it ideal for families and outdoor enthusiasts. The CR-V is equipped with modern technology, including safety features and infotainment systems, providing a well-rounded driving experience that balances performance and practicality.",
         rattingCount: 440,
@@ -336,6 +342,7 @@ export const recommendedCar = [
         price: 74.00,
         oldPrice: 100.00,
         tax: 0,
+        isLoved: false,
         thumbImg: [car6, car5, car4],
         carDetails: "The All New Terios is a compact SUV that combines ruggedness with modern design. It features a spacious interior, advanced safety technologies, and a powerful engine, making it suitable for both city driving and off-road adventures. The Terios offers a comfortable ride, versatile cargo space, and a stylish exterior, appealing to those who seek adventure without compromising on comfort.",
         rattingCount: 440,
@@ -386,6 +393,7 @@ export const recommendedCar = [
         price: 80.00,
         oldPrice: 100.00,
         tax: 0,
+        isLoved: false,
         thumbImg: [car7, car6, car5],
         carDetails: "The CR-V is a compact SUV known for its reliability, spaciousness, and advanced features. It offers a comfortable ride with ample cargo space, making it ideal for families and outdoor enthusiasts. The CR-V is equipped with modern technology, including safety features and infotainment systems, providing a well-rounded driving experience that balances performance and practicality.",
         rattingCount: 440,
@@ -436,6 +444,7 @@ export const recommendedCar = [
         price: 76.00,
         oldPrice: 100.00,
         tax: 0,
+        isLoved: false,
         thumbImg: [car8, car7, car6],
         carDetails: "The MG ZX Exclusive is a stylish hatchback that offers a blend of performance and practicality. With its sleek design, comfortable interior, and advanced technology, it is designed for urban driving and daily commutes. The ZX Exclusive features a fuel-efficient engine, modern safety systems, and a spacious cabin, making it an excellent choice for those seeking a compact yet versatile vehicle.",
         rattingCount: 440,
@@ -486,6 +495,7 @@ export const recommendedCar = [
         price: 80.00,
         oldPrice: 100.00,
         tax: 0,
+        isLoved: false,
         thumbImg: [car9, car8, car7],
         carDetails: "The New MG ZS is a compact SUV that combines modern design with advanced features. It offers a spacious interior, comfortable seating, and a range of technology options, making it ideal for families and urban drivers. The ZS is equipped with efficient engines, safety systems, and infotainment options, providing a well-rounded driving experience that emphasizes both style and functionality.",
         rattingCount: 440,
@@ -536,6 +546,7 @@ export const recommendedCar = [
         price: 74.00,
         oldPrice: 100.00,
         tax: 0,
+        isLoved: false,
         thumbImg: [car10, car9, car8],
         carDetails: "The MG ZX Excite is a sporty hatchback that offers a dynamic driving experience with its agile handling and responsive performance. It features a modern design, comfortable interior, and advanced technology, making it suitable for both city driving and weekend adventures. The ZX Excite is equipped with efficient engines, safety features, and a stylish exterior, appealing to those who seek excitement in their daily commute.",
         rattingCount: 440,
@@ -586,6 +597,7 @@ export const recommendedCar = [
         price: 80.00,
         oldPrice: 100.00,
         tax: 0,
+        isLoved: false,
         thumbImg: [car11, car10, car9],
         carDetails: "The New MG ZS is a compact SUV that combines modern design with advanced features. It offers a spacious interior, comfortable seating, and a range of technology options, making it ideal for families and urban drivers. The ZS is equipped with efficient engines, safety systems, and infotainment options, providing a well-rounded driving experience that emphasizes both style and functionality.",
         rattingCount: 440,
@@ -666,7 +678,7 @@ export const promocodes = [
         id: 1,
         code: "CAR2023",
         discount_percent: 10,
-        expiryDate: "2027-12-31"
+        expiryDate: "2023-12-31"
     },
     {
         id: 2,
@@ -682,8 +694,20 @@ export const promocodes = [
     },
     {
         id: 4,
-        code: "WELCOME15",
+        code: "MANJURUL",
         discount_percent: 15,
-        expiryDate: "2027-12-31"
-    }
+        expiryDate: "2024-12-31"
+    },
+    {
+        id: 5,
+        code: "CAR2025",
+        discount_percent: 10,
+        expiryDate: "2025-12-31"
+    },
+    {
+        id: 6,
+        code: "CAR2026",
+        discount_percent: 10,
+        expiryDate: "2026-12-31"
+    },
 ]
