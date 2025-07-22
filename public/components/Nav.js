@@ -25,7 +25,6 @@ export default function Nav() {
         setIsMobileDropdownOpen(false);
     };
 
-    console.log("Wishlist Count:", wishlistCount);
 
     return (
         <div>
