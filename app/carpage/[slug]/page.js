@@ -6,7 +6,7 @@ import Link from "next/link";
 import CarCard from "@/public/components/CarCard";
 import ReviewSection from "@/public/components/ReviewSection";
 
-export default async function Page({ params }) {
+export default async function CarPage({ params }) {
   const { slug } = await params;
   const carId = Number(slug);
 

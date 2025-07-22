@@ -5,7 +5,7 @@ import Signup from '@/public/components/admin/SignUp';
 import { useAdminLogin } from '@/public/contexts/AdminLoginContext';
 
 
-export default function login() {
+export default function Login() {
   const { isLogging } = useAdminLogin();
   
   return (

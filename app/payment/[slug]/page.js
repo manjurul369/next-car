@@ -6,7 +6,7 @@ import pattern from "@/public/assets/images/pattern.png";
 import PaymentClient from "@/public/components/PaymentClient";
 import RentForm from "@/public/components/RentForm";
 
-export default async function Page({ params }) {
+export default async function PaymentPage({ params }) {
     const { slug } = await params;
     
     const carId = Number(slug);
