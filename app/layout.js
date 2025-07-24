@@ -19,9 +19,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${jakarta.className} ${jakarta.variable}`}
-      >
+      <body className={`${jakarta.className} ${jakarta.variable}`}>
         <AdminLoginProvider>
           <WishlistProvider>
             <Nav />

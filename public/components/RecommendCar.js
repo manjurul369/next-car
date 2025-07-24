@@ -46,10 +46,16 @@ export default function CarCard({ carID, carName, type, carImg, oil, cap, price 
       </div>
       <h2 className='text-sm lg:text-lg font-bold text-slate-gray mb-20'>{type}</h2>
       <div className='flex flex-row sm:flex-col'>
-        <div className='w-full flex justify-center mb-4 lg:mb-8'>
-          <Image src={carImg} alt={carName} className="w-[90%] h-auto" />
+        <div className='w-full mb-8 lg:mb-8'>
+          <div className='relative flex justify-center items-center w-[95%] h-[100px] lg:h-[130px]'>
+            <Image 
+              src={carImg} 
+              alt={carName} 
+              className="w-full h-auto"
+            />
+          </div>
         </div>
-        <div className='flex flex-col sm:flex-row justify-start sm:justify-between items-start mb-4 gap-2 sm:gap-0 w-[120px] sm:w-auto'>
+        <div className='flex flex-col sm:flex-row justify-start sm:justify-between items-start gap-2 sm:gap-0 w-[120px] sm:w-auto'>
           <div className='flex items-center gap-2 text-sm text-slate-gray font-medium'>
             <FaGasPump />
             <p>{oil}</p>

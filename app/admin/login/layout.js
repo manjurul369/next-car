@@ -14,13 +14,8 @@ export const metadata = {
 
 export default function AdminLayout({ children }) {
   return (
-    <html lang="en">
-      <head />
-      <body className={`${jakarta.className} ${jakarta.variable}`}>
-        <div id="admin-root">
-          {children}
-        </div>
-      </body>
-    </html>
+    <div id="admin-root">
+      {children}
+    </div>
   );
 }
