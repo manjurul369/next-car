@@ -9,7 +9,7 @@ export default function AdminLogin() {
   const { isLogging } = useAdminLogin();
   
   return (
-    <div className='w-full h-screen flex pt-40 lg:pt-0 lg:items-center items-start justify-center'>
+    <div className='w-full min-h-screen flex pt-40 lg:pt-30 lg:items-center items-start justify-center'>
       {isLogging ? <Login /> : <Signup />}
     </div>
   )

@@ -2,10 +2,8 @@
 import React, { useState } from 'react'
 import { IoSearch } from "react-icons/io5";
 import { LuSettings2 } from "react-icons/lu";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaUser } from "react-icons/fa";
 import { IoIosNotifications, IoMdSettings } from "react-icons/io";
-import Image from 'next/image';
-import { profile } from '../assets/images';
 import Link from 'next/link';
 import { useWishlist } from '@/public/contexts/WishlistContext';
 import { useRouter } from 'next/navigation';
@@ -59,7 +57,7 @@ export default function Nav() {
                         <IoMdSettings size={15} />
                     </div>
                     <div className='circle'>
-                        <Image src={profile} alt='profile-pic' className='w-full h-full rounded-full' />
+                        <FaUser />
                     </div>
                 </div>
             </div>
@@ -72,7 +70,7 @@ export default function Nav() {
                     </h2>
                     <div className='relative'>
                         <div className='circle cursor-pointer' onClick={toggleMobileDropdown}>
-                            <Image src={profile} alt='profile-pic' className='w-full h-full rounded-full' />
+                            <FaUser size={15} />
                         </div>
 
                         {/* Mobile Dropdown Menu */}
