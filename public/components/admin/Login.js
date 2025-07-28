@@ -1,4 +1,5 @@
 "use client";
+import React, { useState } from 'react';
 import { MdOutlineEmail } from "react-icons/md";
 import { FiLock } from "react-icons/fi";
 import { useForm } from "react-hook-form"
@@ -6,15 +7,58 @@ import { FaFacebookSquare } from "react-icons/fa";
 import Image from 'next/image';
 import { google } from '@/public/assets/images';
 import { useAdminLogin } from '@/public/contexts/AdminLoginContext';
+import { useRouter } from 'next/navigation';
 
 
 export default function login() {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { handleclick } = useAdminLogin();
-    
+    const router = useRouter();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitMessage, setSubmitMessage] = useState("");
+
+    const handleLogin = async (data) => {
+        setIsSubmitting(true);
+        setSubmitMessage("");
+
+        try {
+            const response = await fetch("/api/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: data.email,
+                    password: data.password
+                }),
+            });
+
+            const result = await response.json();
+
+            if(result.success){
+                setSubmitMessage("Login successful!");
+
+                setTimeout(() => {
+                    router.push("/auth/admin/dashboard");
+                }, 1500)
+            }
+            else{
+                setSubmitMessage(result.message || "Login failed. Please try again.");
+            }
+
+
+        } catch (error) {
+            console.error("Login error:", error);
+            setSubmitMessage("An error occurred during login. Please try again.");
+        }
+        finally {
+            setIsSubmitting(false);
+        }
+    }
+
     return (
         <div className='bg-white p-5 lg:p-15 lg:px-20 rounded-xl max-w-[90vw]'>
-            <form className='flex flex-col' onSubmit={handleSubmit((data) => console.log(data.email))}>
+            <form className='flex flex-col' onSubmit={handleSubmit(handleLogin)}>
                 <div className='flex justify-center'>
                     <h2 className='font-bold text-3xl'>LOGIN</h2>
                 </div>
@@ -38,7 +82,26 @@ export default function login() {
                     <input type="checkbox" name="remember-me" id="" />
                     <label htmlFor="remember-me" className='ml-2'>Remember me</label>
                 </div>
-                <button type='submit' className='cursor-pointer mt-5 w-full bg-primary p-3 text-white font-semibold text-sm'>LOGIN</button>
+                {submitMessage && (
+                    <div className={`mt-3 p-2 rounded text-sm text-center ${
+                        submitMessage.includes("successful") 
+                            ? "bg-green-100 text-green-700" 
+                            : "bg-red-100 text-red-700"
+                    }`}>
+                        {submitMessage}
+                    </div>
+                )}
+                <button 
+                    type='submit' 
+                    disabled={isSubmitting}
+                    className={`cursor-pointer mt-5 w-full p-3 text-white font-semibold text-sm rounded-md transition-colors ${
+                        isSubmitting 
+                            ? 'bg-gray-400 cursor-not-allowed' 
+                            : 'bg-primary hover:bg-primary-dark'
+                    }`}
+                >
+                    {isSubmitting ? 'LOGGING IN...' : 'LOGIN'}
+                </button>
                 <div className='flex flex-col items-center mt-5'>
                     <h2 className='text-slate-gray text-sm'>Don't have an account? please <span className='text-primary cursor-pointer' onClick={handleclick} >sign Up</span></h2>
                     <h2 className='text-slate-gray mt-5'>or login with</h2>
