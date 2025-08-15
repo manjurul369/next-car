@@ -6,11 +6,21 @@ import bcrypt from 'bcryptjs';
 connectDB();
 
 export async function GET(request) {
-  console.log("GET request received for users");
-  return NextResponse.json({
-    message: "GET request successful",
-    success: true,
-  })
+  
+  let users = [];
+  try {
+    users = await User.find();
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    return NextResponse.json({
+      message: "Failed to fetch users",
+      success: false,
+      error: error.message
+    })
+  }
+
+  return NextResponse.json(users, { status: 200 });
+   
 }
 
 export async function POST(request) {

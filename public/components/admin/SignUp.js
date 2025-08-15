@@ -10,7 +10,7 @@ import Image from 'next/image';
 import { google } from '@/public/assets/images';
 import { useAdminLogin } from '@/public/contexts/AdminLoginContext';
 import { useRouter } from "next/navigation";
-import { set } from "mongoose";
+import { signIn } from 'next-auth/react';
 
 
 const locations = [
@@ -141,6 +141,23 @@ export default function signup() {
         }
     }
 
+    const handleGoogleSignUp = async () => {
+        try {
+            setSubmitMessage("Redirecting to Google...");
+            const result = await signIn('google', {
+                callbackUrl: '/auth/admin/dashboard',
+                redirect: true,
+            });
+            
+            if (result?.error) {
+                setSubmitMessage("Google sign-up failed. Please try again.");
+            }
+        } catch (error) {
+            console.error("Google sign-up error:", error);
+            setSubmitMessage("Google sign-up failed. Please try again.");
+        }
+    };
+
 
     const termsAccepted = watch("terms");
 
@@ -268,11 +285,15 @@ export default function signup() {
                     <h2 className='text-slate-gray mt-5'>or sign up with</h2>
                 </div>
                 <div className='flex flex-2 gap-3 mt-3 mb-5'>
-                    <button className='cursor-pointer flex items-center justify-center gap-2 text-[#1877F2] border p-3 rounded-md w-full mt-3'>
+                    <button type="button" className='cursor-pointer flex items-center justify-center gap-2 text-[#1877F2] border p-3 rounded-md w-full mt-3'>
                         <FaFacebookSquare size={20} />
                         <span>Facebook</span>
                     </button>
-                    <button className='cursor-pointer flex items-center justify-center gap-2 text-[#0F9D58] border p-3 rounded-md w-full mt-3'>
+                    <button 
+                        type="button" 
+                        onClick={handleGoogleSignUp}
+                        className='cursor-pointer flex items-center justify-center gap-2 text-[#0F9D58] border border-gray-300 hover:border-[#0F9D58] p-3 rounded-md w-full mt-3 transition-colors hover:bg-green-50'
+                    >
                         <Image src={google} alt="Google" width={20} height={20} />
                         <span>Google</span>
                     </button>

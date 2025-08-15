@@ -49,16 +49,22 @@ export default function Nav() {
                             )}
                         </div>
                     </Link>
-                    <div className='circle relative text-text'>
-                        <IoIosNotifications size={20} />
-                        <div className='w-2 h-2 bg-red-500 absolute top-0 right-0 rounded-full'></div>
-                    </div>
-                    <div className='circle text-text'>
-                        <IoMdSettings size={15} />
-                    </div>
-                    <div className='circle'>
-                        <FaUser />
-                    </div>
+                    {/* <Link> */}
+                        <div className='circle relative text-text'>
+                            <IoIosNotifications size={20} />
+                            <div className='w-2 h-2 bg-red-500 absolute top-0 right-0 rounded-full'></div>
+                        </div>
+                    {/* </Link> */}
+                    {/* <Link> */}
+                        <div className='circle text-text'>
+                            <IoMdSettings size={15} />
+                        </div>
+                    {/* </Link> */}
+                    <Link href={"/auth/admin/login"} >
+                        <div className='circle'>
+                            <FaUser />
+                        </div>
+                    </Link>
                 </div>
             </div>
 

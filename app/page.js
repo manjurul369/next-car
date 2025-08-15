@@ -31,7 +31,7 @@ export default function Home() {
         <div className="flex items-center justify-center w-16 h-16 lg:w-40 bg-primary text-white rounded-md shadow-lg -my-4 lg:m-0 z-2 cursor-pointer">
           <CgArrowsExchange size={40} />
         </div>
-        <PickUpForm label="Drop - Off"/>
+        <PickUpForm label="Drop - Off" />
       </section>
 
       <section id="popular-car" className="py-5 pl-5 pt-10 md:p-10 lg:p-15">
@@ -40,21 +40,36 @@ export default function Home() {
           <button className="text-primary font-semibold cursor-pointer">View all</button>
         </div>
         <div className="relative">
-          <div className="flex flex-nowrap gap-5 lg:gap-10 mt-5 lg:mt-10 justify-start overflow-x-auto scrollbar-hide md:flex-wrap md:overflow-x-visible">
-          {popularCar.map((car) => (
-            <Link href={`/carpage/${car.id}` } key={car.id}><CarCard
-              key={car.id}
-              carID={car.id}
-              carName={car.carName}
-              type={car.type}
-              carImg={car.carImg}
-              oil={car.oil}
-              cap={car.cap}
-              price={car.price}
-            />
-            </Link>
-          ))}
-          <div className="absolute right-0 top-0 h-full w-[150px] bg-gradient-to-l from-white to-transparent z-10 block md:hidden pointer-events-none"></div>
+          <div className="flex flex-nowrap gap-5 mt-5 justify-start overflow-x-auto scrollbar-hide md:hidden">
+            {popularCar.map((car) => (
+              <Link href={`/carpage/${car.id}`} key={car.id}><CarCard
+                key={car.id}
+                carID={car.id}
+                carName={car.carName}
+                type={car.type}
+                carImg={car.carImg}
+                oil={car.oil}
+                cap={car.cap}
+                price={car.price}
+              />
+              </Link>
+            ))}
+            <div className="absolute right-0 top-0 h-full w-[150px] bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+          </div>
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-8 mt-5 lg:mt-10">
+            {popularCar.map((car) => (
+              <Link href={`/carpage/${car.id}`} key={car.id}><CarCard
+                key={car.id}
+                carID={car.id}
+                carName={car.carName}
+                type={car.type}
+                carImg={car.carImg}
+                oil={car.oil}
+                cap={car.cap}
+                price={car.price}
+              />
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -62,9 +77,9 @@ export default function Home() {
       <section id="recommend-car" className="p-5 pt-10 md:p-10 lg:p-15">
         <h2 className="title">Recommend Car</h2>
         <div className="relative">
-          <div className="flex gap-5 mt-5 lg:mt-10 lg:gap-10 justify-start flex-wrap">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-8 mt-5 lg:mt-10">
             {recommendedCar.map((car) => (
-              <Link href={`/carpage/${car.id}` } key={car.id}><RecommendCar
+              <Link href={`/carpage/${car.id}`} key={car.id}><RecommendCar
                 key={car.id}
                 carID={car.id}
                 carName={car.carName}
@@ -79,7 +94,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex justify-center mt-10">
-          <Button label="Show more car" buttonColor="#3563E9"/>
+          <Button label="Show more car" buttonColor="#3563E9" />
         </div>
       </section>
     </div>

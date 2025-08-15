@@ -25,7 +25,7 @@ export default function Wishlist() {
                         <p className="text-gray-500">Start adding cars to your wishlist!</p>
                     </div>)}
                 <div className="relative">
-                    <div className="flex flex-nowrap gap-5 lg:gap-10 mt-5 lg:mt-10 justify-start overflow-x-auto scrollbar-hide md:flex-wrap md:overflow-x-visible">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-8 mt-5 lg:mt-10">
                         {lovedCars.map((car) => (
                             <Link href={`/carpage/${car.id}`} key={car.id}><RecommendCar
                                 key={car.id}

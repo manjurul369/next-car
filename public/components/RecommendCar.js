@@ -27,51 +27,53 @@ export default function CarCard({ carID, carName, type, carImg, oil, cap, price 
   };
 
   return (
-    <div className='bg-white shadow-lg rounded-lg p-5 lg:p-8 flex flex-col w-full sm:max-w-[400px] min-w-[300px] cursor-pointer hover:shadow-xl transition-shadow duration-300 ease-in-out'>
+    <div className='bg-white shadow-lg rounded-lg p-4 lg:p-6 flex flex-col w-full h-full min-h-[400px] cursor-pointer hover:shadow-xl transition-shadow duration-300 ease-in-out'>
       <div className='flex justify-between items-center mb-2'>
-        <h2 className='font-bold text-xl lg:text-2xl'>{carName}</h2>
+        <h2 className='font-bold text-lg lg:text-xl truncate pr-2'>{carName}</h2>
         {isFavorite ? (
           <FaHeart 
-            className='text-red-500 cursor-pointer' 
-            size={25} 
+            className='text-red-500 cursor-pointer flex-shrink-0' 
+            size={22} 
             onClick={toggleFavorite} 
           />
         ) : (
           <FaRegHeart 
-            className='text-gray-400 cursor-pointer' 
-            size={25} 
+            className='text-gray-400 cursor-pointer flex-shrink-0' 
+            size={22} 
             onClick={toggleFavorite} 
           />
         )}
       </div>
-      <h2 className='text-sm lg:text-lg font-bold text-slate-gray mb-20'>{type}</h2>
-      <div className='flex flex-row sm:flex-col'>
-        <div className='w-full mb-8 lg:mb-8'>
-          <div className='relative flex justify-center items-center w-[95%] h-[100px] lg:h-[130px]'>
+      <h2 className='text-sm lg:text-base font-bold text-slate-gray mb-4 lg:mb-6'>{type}</h2>
+      <div className='flex flex-col flex-grow'>
+        <div className='flex-grow mb-4 lg:mb-6 flex items-center justify-center'>
+          <div className='relative w-full h-[120px] lg:h-[140px]'>
             <Image 
               src={carImg} 
               alt={carName} 
-              className="w-full h-auto"
+              className="w-full h-full object-contain"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+              priority={false}
             />
           </div>
         </div>
-        <div className='flex flex-col sm:flex-row justify-start sm:justify-between items-start gap-2 sm:gap-0 w-[120px] sm:w-auto'>
-          <div className='flex items-center gap-2 text-sm text-slate-gray font-medium'>
-            <FaGasPump />
+        <div className='grid grid-cols-3 gap-2 mb-4 lg:mb-6'>
+          <div className='flex items-center justify-center gap-1 text-xs lg:text-sm text-slate-gray font-medium'>
+            <FaGasPump size={14} />
             <p>{oil}</p>
           </div>
-          <div className='flex items-center gap-2 text-sm text-slate-gray font-medium'>
-            <PiSteeringWheelFill />
+          <div className='flex items-center justify-center gap-1 text-xs lg:text-sm text-slate-gray font-medium'>
+            <PiSteeringWheelFill size={16} />
             <p>Manual</p>
           </div>
-          <div className='flex items-center gap-2 text-sm text-slate-gray font-medium'>
-            <MdPeopleAlt />
+          <div className='flex items-center justify-center gap-1 text-xs lg:text-sm text-slate-gray font-medium'>
+            <MdPeopleAlt size={16} />
             <p>{cap}</p>
           </div>
         </div>
       </div>
-      <div className='flex justify-between items-center'>
-        <p className='font-bold text-xl'>${price.toFixed(2)}/ <span className='text-slate-gray text-sm'>day</span></p>
+      <div className='flex justify-between items-center mt-auto pt-2'>
+        <p className='font-bold text-lg lg:text-xl'>${price.toFixed(2)}/ <span className='text-slate-gray text-xs lg:text-sm'>day</span></p>
         <Button label={"Rent Now"} buttonColor="#3563E9" onClick={handleRentNow} />
       </div>
     </div>

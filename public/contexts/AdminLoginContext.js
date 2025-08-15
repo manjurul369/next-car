@@ -12,7 +12,7 @@ export const useAdminLogin = () => {
 }
 
 export const AdminLoginProvider = ({children}) => {
-    const [isLogging, setIsLogging] = useState(true);
+    const [isLogging, setIsLogging] = useState(false);
 
     const handleclick = () => {
         setIsLogging(!isLogging);
