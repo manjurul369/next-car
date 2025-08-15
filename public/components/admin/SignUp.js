@@ -144,14 +144,13 @@ export default function signup() {
     const handleGoogleSignUp = async () => {
         try {
             setSubmitMessage("Redirecting to Google...");
-            const result = await signIn('google', {
-                callbackUrl: '/auth/admin/dashboard',
+            
+            // Use signIn with proper callback URL
+            await signIn('google', {
+                callbackUrl: `${window.location.origin}/auth/admin/dashboard`,
                 redirect: true,
             });
             
-            if (result?.error) {
-                setSubmitMessage("Google sign-up failed. Please try again.");
-            }
         } catch (error) {
             console.error("Google sign-up error:", error);
             setSubmitMessage("Google sign-up failed. Please try again.");

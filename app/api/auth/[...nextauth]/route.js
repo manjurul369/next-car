@@ -1,9 +1,7 @@
 import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
-import { MongoDBAdapter } from '@next-auth/mongodb-adapter'
 import { connectDB } from '@/helper/db'
 import { User } from '@/models/user'
-import mongoose from 'mongoose'
 
 const handler = NextAuth({
   providers: [
@@ -12,7 +10,6 @@ const handler = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     })
   ],
-  adapter: MongoDBAdapter(mongoose.connection.client),
   callbacks: {
     async signIn({ user, account, profile }) {
       try {
@@ -20,7 +17,7 @@ const handler = NextAuth({
         
         if (account.provider === 'google') {
           // Check if user already exists
-          const existingUser = await User.findOne({ 
+          let existingUser = await User.findOne({ 
             $or: [
               { email: user.email },
               { googleId: account.providerAccountId }
@@ -33,37 +30,61 @@ const handler = NextAuth({
               name: user.name,
               email: user.email,
               googleId: account.providerAccountId,
-              phone: '', // Will be filled later if needed
-              address: '', // Will be filled later if needed
-              district: '', // Will be filled later if needed
-              nid: null, // Will be filled later if needed
-              drivingLicense: '', // Will be filled later if needed
+              phone: '', 
+              address: '', 
+              district: '', 
+              nid: null, 
+              drivingLicense: '', 
               password: '', // No password for Google users
             });
 
-            await newUser.save();
+            existingUser = await newUser.save();
+            console.log('New Google user created:', existingUser._id);
+          } else {
+            console.log('Existing user found:', existingUser._id);
+            // Update Google ID if it doesn't exist
+            if (!existingUser.googleId) {
+              existingUser.googleId = account.providerAccountId;
+              await existingUser.save();
+            }
           }
         }
         
         return true;
       } catch (error) {
         console.error('Error during sign in:', error);
-        return false;
+        return true; // Allow sign in even if there's a database error
       }
     },
+    
+    async jwt({ token, account, user }) {
+      // Persist the OAuth account info in the JWT token
+      if (account) {
+        token.accessToken = account.access_token;
+        token.provider = account.provider;
+        token.providerAccountId = account.providerAccountId;
+      }
+      
+      if (user) {
+        token.id = user.id;
+      }
+      
+      return token;
+    },
+    
     async session({ session, token }) {
       try {
         await connectDB();
-        const user = await User.findOne({ email: session.user.email });
+        const dbUser = await User.findOne({ email: session.user.email });
         
-        if (user) {
-          session.user.id = user._id.toString();
-          session.user.phone = user.phone;
-          session.user.address = user.address;
-          session.user.district = user.district;
-          session.user.nid = user.nid;
-          session.user.drivingLicense = user.drivingLicense;
-          session.user.isGoogleUser = !!user.googleId;
+        if (dbUser) {
+          session.user.id = dbUser._id.toString();
+          session.user.phone = dbUser.phone;
+          session.user.address = dbUser.address;
+          session.user.district = dbUser.district;
+          session.user.nid = dbUser.nid;
+          session.user.drivingLicense = dbUser.drivingLicense;
+          session.user.isGoogleUser = !!dbUser.googleId;
         }
         
         return session;
@@ -72,15 +93,32 @@ const handler = NextAuth({
         return session;
       }
     },
+    
+    async redirect({ url, baseUrl }) {
+      console.log('Redirect callback - url:', url, 'baseUrl:', baseUrl);
+      
+      // Always redirect to dashboard after successful authentication
+      if (url.includes('callbackUrl')) {
+        const urlParams = new URLSearchParams(url.split('?')[1]);
+        const callbackUrl = urlParams.get('callbackUrl');
+        if (callbackUrl) {
+          return decodeURIComponent(callbackUrl);
+        }
+      }
+      
+      // Default redirect to dashboard
+      return `${baseUrl}/auth/admin/dashboard`;
+    },
   },
   pages: {
     signIn: '/auth/admin/login',
-    error: '/auth/error',
+    error: '/auth/admin/login',
   },
   session: {
     strategy: 'jwt',
   },
   secret: process.env.NEXTAUTH_SECRET,
+  debug: process.env.NODE_ENV === 'development',
 })
 
 export { handler as GET, handler as POST }

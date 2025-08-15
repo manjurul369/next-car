@@ -60,14 +60,12 @@ export default function login() {
     const handleGoogleLogin = async () => {
         try {
             setSubmitMessage("Redirecting to Google...");
-            const result = await signIn('google', {
-                callbackUrl: '/auth/admin/dashboard',
+            
+            await signIn('google', {
+                callbackUrl: `${window.location.origin}/auth/admin/dashboard`,
                 redirect: true,
             });
             
-            if (result?.error) {
-                setSubmitMessage("Google login failed. Please try again.");
-            }
         } catch (error) {
             console.error("Google login error:", error);
             setSubmitMessage("Google login failed. Please try again.");
